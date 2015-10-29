@@ -1,14 +1,17 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './crack'
-require '.enigma'
+require './enigma'
+require 'pry'
 
 class TestCrack < Minitest::Test
 
-  def test_assert_can_crack(message)
-    # unencrypted = "abcd"
+  def test_assert_can_crack
+    unencrypted = "abcd"
+    # binding.pry
     map = Crack.char_map
-    encrypted = Crack.new(message, [7, 37, 22, 91], char_map).encrypt
+    encrypted = Crack.cracked(unencrypted, [7, 37, 22, 91], map).encrypt
+    binding.pry
     cracked = Crack.crack(encrypted, map)
     encrypted = enigma.encrypt
     # decrypted = "burger"

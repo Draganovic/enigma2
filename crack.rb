@@ -1,3 +1,5 @@
+require 'pry'
+
 class Crack
 
   def initialize(encrypted_message, date)
@@ -12,9 +14,10 @@ class Crack
     char_map = ('a'..'z').to_a + ('0'..'9').to_a + [' ', '.', ',']
   end
 
-  def self.cracked(encrypted, map, message)
+  def self.cracked(message, encrypted, map)
+    binding.pry
     new_split = message.chars.each_slice(4).to_a
-    encrypted.new_split
+    new_split.encrypted
     last_4 = message.chars.each_slice(4).encrypted
     encrypted_part, known_part =
     case last.length % 4
@@ -26,6 +29,7 @@ class Crack
 
     offsets = known_part.chars.zip(encrypted_part.chars).map do |known_value, encrypted_value|
       find_offset map, known_value, encrypted_value
+    end
   end
 
   def self.find_offset(map, first, second)

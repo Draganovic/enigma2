@@ -25,7 +25,6 @@ class Enigma
     offsets = date_square[-4..-1]
     part.map.with_index { |char, i| encrypt_char(char, @key[i..i+1].to_i, offsets[i].to_i)}
 
-  #Kept trying to pass in character when it should have been an integer
       # encrypted_index_a = encrypt_char(part[0], @key[0..1].to_i, offsets[0].to_i)
       # encrypted_index_b = encrypt_char(part[1], @key[1..2].to_i, offsets[1].to_i)
       # encrypted_index_c = encrypt_char(part[2], @key[2..3].to_i, offsets[2].to_i)
