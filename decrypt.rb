@@ -29,9 +29,7 @@ class Decrypt
     date_square = (@date.to_i ** 2).to_s
     offsets = date_square[-4..-1]
 
-    part.map.with_index { |char, i|
-      decrypt_char(char, @key[i..i+1].to_i, offsets[i].to_i)
-    }
+    part.map.with_index { |char, i| decrypt_char(char, @key[i..i+1].to_i, offsets[i].to_i)}
   end
 
   def decrypt_char(character, rotation, offset)
