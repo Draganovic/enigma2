@@ -48,4 +48,14 @@ class TestEnigma < Minitest::Test
     assert_equal encrypted, enigma.encrypt
   end
 
+  # def test_can_decrypt_message
+  #   message = "u1qaxy"
+  #   decrypted = "burger"
+  #   key = "58367"
+  #   date = "221015"
+  #   enigma = Enigma.new(message, key, date)
+  #
+  #   assert_equal decrypted, enigma.decrypt
+  # end
+
 end
